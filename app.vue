@@ -1,8 +1,8 @@
 <template>
   <div>
-    <NuxtPage />
+    <NuxtLayout>
+      <NuxtRouteAnnouncer />
+      <NuxtPage />
+    </NuxtLayout>
   </div>
 </template>
-<style lang="scss">
-@import '~/assets/stylesheets/all.scss';
-</style>
