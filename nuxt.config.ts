@@ -10,7 +10,12 @@ export default defineNuxtConfig({
          "path": "~/components/global",
          "global": true
      }
-   ]
- }
+   ],
+  },
+  runtimeConfig: {
+    public: {
+      NUXT_APP_BASE_URL: process.env.NUXT_APP_BASE_URL,
+    },
+  }
 
 })

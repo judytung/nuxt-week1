@@ -1,13 +1,12 @@
 <script setup >
-import AppHeader from '@/components/global/Header';
-import AppFooter from '@/components/global/Footer';
+
 </script>
 
 <template>
   <div>
-    <AppHeader />
+    <Header />
     <slot />
-    <AppFooter />
+    <Footer />
   </div>
 </template>
 

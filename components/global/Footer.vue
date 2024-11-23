@@ -9,7 +9,7 @@ import { Icon } from '@iconify/vue';
         <div>
           <img
             class="mb-10"
-            src="@/assets/images/logo-white.svg"
+            src="/images/logo-white.svg"
             alt="logo"
           >
           <div class="d-flex align-items-center gap-4">

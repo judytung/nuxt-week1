@@ -1,31 +1,24 @@
-<script setup>
-// import { ref, onMounted, onUnmounted, computed } from 'vue';
-// import { RouterLink, useRoute } from 'vue-router'
-import { Icon } from '@iconify/vue';
+<script setup lang="ts">
+import { Icon } from '@iconify/vue'
 
-// import '~bootstrap/js/dist/collapse';
-// import '~bootstrap/js/dist/dropdown';
+const route = useRoute()
+const transparentBgRoute = ['home', 'rooms']
 
-const route = useRoute();
-const transparentBgRoute = ['home', 'rooms'];
+const isTransparentRoute = computed(() => transparentBgRoute.includes(route.name as string))
 
-const isTransparentRoute = computed(() => transparentBgRoute.includes(route.name));
+const isScrolled = ref(false)
 
-
-const isScrolled = ref(false);
-
-const handleScroll = () => {
-  isScrolled.value = window.scrollY > 50;
+function handleScroll() {
+  isScrolled.value = window.scrollY > 50
 }
 
 onMounted(() => {
-  window.addEventListener('scroll', handleScroll);
+  window.addEventListener('scroll', handleScroll)
 })
 
 onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll);
+  window.removeEventListener('scroll', handleScroll)
 })
-
 </script>
 
 <template>
@@ -33,7 +26,7 @@ onUnmounted(() => {
     :class="{
       'scrolled': isScrolled,
       'bg-transparent': isTransparentRoute,
-      'bg-neutral-120': !isTransparentRoute
+      'bg-neutral-120': !isTransparentRoute,
     }"
     class="position-fixed top-0 z-3 w-100"
   >
@@ -44,7 +37,7 @@ onUnmounted(() => {
           to="/"
         >
           <img
-            src="@/assets/images/logo-white.svg"
+            src="/images/logo-white.svg"
             alt="logo"
             class="logo img-fluid"
           >
@@ -75,7 +68,7 @@ onUnmounted(() => {
             <li class="nav-item">
               <NuxtLink
                 :to="{
-                  name: 'rooms'
+                  name: 'rooms',
                 }"
                 class="nav-link p-4 text-neutral-0"
               >
@@ -89,7 +82,7 @@ onUnmounted(() => {
                   class="nav-link d-flex gap-2 p-4 text-neutral-0"
                   data-bs-toggle="dropdown"
                 >
-                  <Icon 
+                  <Icon
                     class="fs-5"
                     icon="mdi:account-circle-outline"
                   />
@@ -102,26 +95,17 @@ onUnmounted(() => {
                   <li>
                     <NuxtLink
                       class="dropdown-item px-6 py-4"
-                      :to="{
-                        name: 'user-userId-profile',
-                        params:{userId:1}
-                      }"
+                      to="/user/1/profile"
                     >
                       我的帳戶
                     </NuxtLink>
                   </li>
                   <li>
-                    <a
-                      class="dropdown-item px-6 py-4"
-                      href="#"
-                    >登出</a>
-                  </li>
-                  <li >
                     <NuxtLink
-                      to="/login"
-                      class="nav-link p-4 text-neutral-0"
+                      class="dropdown-item px-6 py-4"
+                      to="/account/login"
                     >
-                      會員登入
+                      登出
                     </NuxtLink>
                   </li>
                 </ul>
@@ -138,7 +122,7 @@ onUnmounted(() => {
             <li class="nav-item">
               <NuxtLink
                 :to="{
-                  name: 'rooms'
+                  name: 'rooms',
                 }"
                 class="btn btn-primary-100 px-8 py-4 text-white fw-bold border-0 rounded-3"
               >
@@ -185,7 +169,7 @@ header.scrolled {
     svg {
       transition: opacity .3s;
     }
-    
+
     svg:nth-child(1) {
       position: absolute;
       top: 28px;
@@ -240,6 +224,4 @@ header.scrolled {
   --bs-dropdown-link-active-color: #fff;
   --bs-dropdown-link-active-bg: #BF9D7D;
 }
-
-
 </style>
