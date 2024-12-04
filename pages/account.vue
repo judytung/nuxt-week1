@@ -1,10 +1,11 @@
 <script setup>
+definePageMeta({
+  layout: 'account',
+})
 </script>
 
 <template>
-  <NuxtLayout name="user">
-    <NuxtPage />
-  </NuxtLayout>
+  <NuxtPage />
 </template>
 
 <style scoped lang="scss">

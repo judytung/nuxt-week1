@@ -1,7 +1,4 @@
-<script setup lang="ts">
-definePageMeta({
-  name: 'login',
-})
+<script setup>
 </script>
 
 <template>

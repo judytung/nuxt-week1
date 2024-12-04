@@ -1,10 +1,9 @@
 <script setup>
+navigateTo('/account/login')
 </script>
 
 <template>
-  <NuxtLayout name="user">
-    <NuxtPage />
-  </NuxtLayout>
+  <div />
 </template>
 
 <style scoped lang="scss">
